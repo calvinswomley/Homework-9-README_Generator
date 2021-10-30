@@ -1,11 +1,8 @@
-console.log("Hello world!")
-
 // TODO: Include packages needed for this application
 var input = process.argv
 
 var inquirer = require('inquirer');
 var fs = require('fs');
-
 
 // TODO: Create an array of questions for user input
 //var questions = ["What is the title of your project?", "Describe the project.", "How do you install the app?", "How do you use the app?", "What type of license?", "Who are the contributors?", "How is the app tested?", "GitHub Username?", "Email address?"];
@@ -15,7 +12,6 @@ function writeToFile(fileName, data) {
   fs.appendFile('README.md', `${JSON.stringify(fileName, data)}\n`, (err) =>
     console.log("the file name: " + fileName + " data: " + data)
   );
-
 }
 
 // TODO: Create a function to initialize app
