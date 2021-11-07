@@ -1,23 +1,14 @@
 // TODO: Include packages needed for this application
-var input = process.argv
-
-var inquirer = require('inquirer');
-var fs = require('fs');
+const inquirer = require('inquirer');
+const fs = require('fs');
 
 // TODO: Create an array of questions for user input
-//var questions = ["What is the title of your project?", "Describe the project.", "How do you install the app?", "How do you use the app?", "What type of license?", "Who are the contributors?", "How is the app tested?", "GitHub Username?", "Email address?"];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  fs.appendFile('README.md', `${JSON.stringify(fileName, data)}\n`, (err) =>
-    console.log("the file name: " + fileName + " data: " + data)
-  );
-}
 
 // TODO: Create a function to initialize app
-function init() {
-  inquirer
-  .prompt([
+const promptUser = () => {
+  return inquirer.prompt([
     {
       type: 'input',
       name: 'name',
@@ -41,7 +32,7 @@ function init() {
     {
       type: 'checkbox',
       message: 'What type of license?',
-      name: 'liscense',
+      name: 'license',
       choices: ['MIT', 'CC', 'GPL', 'ISC'],
     },
     {
@@ -65,12 +56,41 @@ function init() {
       message: 'Email address?',
     },
   ])
-  .then((response) => 
-      fs.appendFile('README.md', `${JSON.stringify(response)}\n`, (err) =>
-      console.log("An error occured: " + err)
-      )
-      //writeToFile(fileName, data)
-  )
+}
+
+const generateReadme = ({ name, description, installation, use, license, contributors, tests, github, email }) =>
+ `${name}
+  ## Contents
+  - [Description](#Description)
+  - [Installation](#Installation)
+  - [Use](#Use)
+  - [License](#License)
+  - [Contributors](#Contributors)
+  - [Tests](Tests)
+  - [Contacts](#Contacts)
+
+  ## Description:
+    ${description}
+  ## Installation
+    ${installation}
+  ## Use
+    ${use}
+  ## License
+    ${license}
+  ## Contributors
+    ${contributors}
+  ## Tests:
+    ${tests}
+  ## Contact:
+    ${github} | ${email}`;
+
+const init = () => {
+  promptUser()
+  //console.log(response)
+  .then((response) => {
+    console.log(generateReadme(response))
+    fs.writeFile('README.md', generateReadme(response), (appendErr) => appendErr ? console.error(appendErr) : console.info('Success'));
+  })
   .catch((error) => {
     if (error.isTtyError) {
       console.log("There is an error.")
@@ -78,7 +98,7 @@ function init() {
       console.log("Something went wrong.")
     }
   })
-}
+};
 
 // Function call to initialize app
 init();

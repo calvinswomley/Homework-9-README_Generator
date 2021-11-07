@@ -1,1 +1,0 @@
-{"name":"FoodApp","description":"Order food on an app.","installation":"install it","use":"self explanitory","liscense":["MIT"],"contributors":"Calvin","tests":"use jest","github":"calvinswomley","email":"calvinswomley@gmail.com"}

@@ -9,7 +9,7 @@ Contact for Questions, Comments, Issues or Collaboration: calvinswomley@gmail.co
 
 Command Line Screenshot:![Command line README generator screenshot](./images/cl_screenshot.PNG)
 
-Link to Walkthrough video: https://watch.screencastify.com/v/wNt9ZJ4WDGlSG3CNNWnf
+Link to Walkthrough video: https://watch.screencastify.com/v/O1MDLDm5ncU5ce875tzM
 
 Contributor(s): Calvin Swomley
 
