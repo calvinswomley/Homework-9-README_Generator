@@ -69,20 +69,20 @@ const generateReadme = ({ name, description, installation, use, license, contrib
   - [Tests](Tests)
   - [Contacts](#Contacts)
 
-  ## Description:
+  ## **Description**:
     ${description}
-  ## Installation
+  ## **Installation**
     ${installation}
-  ## Use
+  ## **Use**
     ${use}
-  ## License
+  ## **License**
     ${license}
-  ## Contributors
+  ## **Contributors**
     ${contributors}
-  ## Tests:
+  ## **Tests**
     ${tests}
-  ## Contact:
-    ${github} | ${email}`;
+  ## **Contact**
+  [https://github.com/${github}](https://github.com/${github}) | [${email}](mailto: ${email})`;
 
 const init = () => {
   promptUser()
